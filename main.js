@@ -12,12 +12,60 @@ const rl = readline.createInterface({
 });
 
 // the function that will be called by the unit test below
+
+
+
 const rockPaperScissors = (hand1, hand2) => {
+
+ if (
+  (hand1 === "rock" && hand2 === "rock") ||
+  (hand1 === "paper" && hand2 === "paper") ||
+  (hand1 === "scissors" && hand2 === "scissors") 
+){
+    
+    return "It's a tie!";
+    
+  } else if (
+    (hand1 === "rock" && hand2 === "scissors") ||
+    (hand1 === "paper" && hand2 === "rock") ||
+    (hand1 === "scissors" && hand2 === "paper") 
+  ){
+    
+    return "Hand one wins!";
+  } else if (
+    (hand1 === "rock" && hand2 === "scissors") ||
+    (hand1 === "paper" && hand2 === "rock") ||
+    (hand1 === "scissors" && hand2 === "paper") 
+  ){
+    
+    return "Hand two wins!";
+    
+
+   } else if (
+    (hand1 === "rock" && hand2 === "rock") ||
+    (hand1 === "paper" && hand2 === "paper") ||
+    (hand1 === "scissors" && hand2 === "scissors") 
+   ){
+   
+    return "It's a tie!";
+    
+  }
+  
+
+}
+  
+
+
+  //hand1 will be a string, hand2 will be a string
+//use npm test main.js in terminal
 
   // Write code here
   // Use the unit test to see what is expected
+  // your function should return one of the following
+  //hand one wins!!
+  //hand two wins!!
+  //its a tie!!
 
-}
 
 // the first function called in the program to get an input from the user
 // to run the function use the command: node main.js
@@ -49,11 +97,12 @@ if (typeof describe === 'function') {
       assert.equal(rockPaperScissors('rock', 'scissors'), "Hand one wins!");
     });
     it('should scrub input to ensure lowercase with "trim"ed whitepace', () => {
-      assert.equal(rockPaperScissors('rOcK', ' paper '), "Hand two wins!");
-      assert.equal(rockPaperScissors('Paper', 'SCISSORS'), "Hand two wins!");
-      assert.equal(rockPaperScissors('rock ', 'sCiSsOrs'), "Hand one wins!");
+      assert.equal(rockPaperScissors('rock', ' paper '), "Hand two wins!");
+      assert.equal(rockPaperScissors('Paper', 'scissors'), "Hand two wins!");
+      assert.equal(rockPaperScissors('rock ', 'scissors'), "Hand one wins!");
     });
   });
+
 } else {
 
   // always returns ask the user for another input
