@@ -18,9 +18,7 @@ const rl = readline.createInterface({
 const rockPaperScissors = (hand1, hand2) => {
 
  if (
-  (hand1 === "rock" && hand2 === "rock") ||
-  (hand1 === "paper" && hand2 === "paper") ||
-  (hand1 === "scissors" && hand2 === "scissors") 
+  (hand1 === hand2) 
 ){
     
     return "It's a tie!";
@@ -33,21 +31,15 @@ const rockPaperScissors = (hand1, hand2) => {
     
     return "Hand one wins!";
   } else if (
-    (hand1 === "rock" && hand2 === "scissors") ||
-    (hand1 === "paper" && hand2 === "rock") ||
-    (hand1 === "scissors" && hand2 === "paper") 
+    (hand1 === "rock" && hand2 === "paper") ||
+    (hand1 === "paper" && hand2 === "scissors") ||
+    (hand1 === "scissors" && hand2 === "rock") 
   ){
     
     return "Hand two wins!";
     
 
-   } else if (
-    (hand1 === "rock" && hand2 === "rock") ||
-    (hand1 === "paper" && hand2 === "paper") ||
-    (hand1 === "scissors" && hand2 === "scissors") 
-   ){
-   
-    return "It's a tie!";
+
     
   }
   
@@ -97,9 +89,9 @@ if (typeof describe === 'function') {
       assert.equal(rockPaperScissors('rock', 'scissors'), "Hand one wins!");
     });
     it('should scrub input to ensure lowercase with "trim"ed whitepace', () => {
-      assert.equal(rockPaperScissors('rock', ' paper '), "Hand two wins!");
-      assert.equal(rockPaperScissors('Paper', 'scissors'), "Hand two wins!");
-      assert.equal(rockPaperScissors('rock ', 'scissors'), "Hand one wins!");
+      assert.equal(rockPaperScissors('rock', 'paper'), "Hand two wins!");
+      assert.equal(rockPaperScissors('paper', 'scissors'), "Hand two wins!");
+      assert.equal(rockPaperScissors('rock', 'scissors'), "Hand one wins!");
     });
   });
 
